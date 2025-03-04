@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; text-align: center; padding: 50px; }
+        form { background: white; padding: 20px; width: 300px; margin: auto; border-radius: 5px; }
+        input, textarea { width: 100%; padding: 10px; margin: 5px 0; }
+        button { background: blue; color: white; padding: 10px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<h2>Contact Us</h2>
+<form id="contactForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="email" id="email" placeholder="Your Email" required>
+    <textarea id="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send</button>
+</form>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    let formData = new FormData();
+    formData.append("name", document.getElementById("name").value);
+    formData.append("email", document.getElementById("email").value);
+    formData.append("message", document.getElementById("message").value);
+    
+    fetch("process.php", { method: "POST", body: formData })
+    .then(response => response.text())
+    .then(data => alert(data))
+    .catch(error => console.error("Error:", error));
+});
+</script>
+
+</body>
+</html>
