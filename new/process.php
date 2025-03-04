@@ -1,5 +1,5 @@
 <?php
-$host = "database-2.cpgumeyqof7r.us-east-2.rds.amazonaws.com";
+$host = "demotest.cpgumeyqof7r.us-east-2.rds.amazonaws.com";
 $user = "admin";
 $pass = "Vetrivel123";
 $dbname = "contact_db";
